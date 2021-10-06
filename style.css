@@ -1,9 +1,9 @@
 body {
-    background-color:rgb(22, 24, 85);
+    background-color:#303F9F;
     padding: 0 1em 0 1em;
     display: flex;
     justify-content: center;
-    
+    color: #212121;
 }
 
 #root {
@@ -22,17 +22,19 @@ body {
 .building-div {
     padding:1em; 
     border: 1px solid rgb(225, 225, 225);
-    background-color: rgb(206, 206, 206)!important;
+    background-color: #C5CAE9!important;
+    color:#757575;
 }
 
 .active-building {
     background-color: white!important;
+    color: #212121;
 }
 
 #money-div {
     padding: 0.6em;
     font-size: 1.6em;
-    background-color: rgb(145, 27, 27);
+    background-color: #d328a0;
     color: white;
     top:0;
     position:sticky;
@@ -49,13 +51,13 @@ h1 {
 input {
     min-width: 5em;
     height: 3em;
-    background-color: rgb(102, 255, 140);
+    background-color: #CDDC39;
     border-radius: 15px;
-    border: 1px solid rgb(194, 194, 194);
+    border: 1px solid #BDBDBD;
 }
 
 input:disabled {
-    background-color: rgb(225, 254, 232);
+    background-color: #faffce;;
 }
 
 img {
@@ -64,9 +66,15 @@ img {
 
 .reset-button {
     background-color: rgb(255, 101, 101)!important;
-    border-radius: 0;
 }
 .save-button {
-    background-color: rgb(140, 240, 120)!important;
+    background-color: #CDDC39!important;
+}
+
+.save-button, .reset-button {
     border-radius: 0;
+    border: none;
+}
+input:hover {
+    opacity: 0.9;
 }
