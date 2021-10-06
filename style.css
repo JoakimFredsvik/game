@@ -1,9 +1,10 @@
 body {
-    background-color:#303F9F;
-    padding: 0 1em 0 1em;
+    background-color:#ffff;
+    padding: 0 0.3em 0 0.3em;
     display: flex;
     justify-content: center;
     color: #212121;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 #root {
@@ -21,43 +22,50 @@ body {
 
 .building-div {
     padding:1em; 
-    border: 1px solid rgb(225, 225, 225);
-    background-color: #C5CAE9!important;
+    background-color: #e3e3e3!important;
     color:#757575;
+    border: 1px solid white;
 }
 
 .active-building {
     background-color: white!important;
     color: #212121;
+    border: 1px solid rgb(230, 228, 228);
 }
 
 #money-div {
     padding: 0.6em;
     font-size: 1.6em;
-    background-color: #d328a0;
+    background-color: #291720;
     color: white;
     top:0;
     position:sticky;
+    font-weight: bold;
 }
 
 h1 {
     font-size: 4em;
     padding:0;
     margin:0.5em;
-    color:rgb(255, 255, 255);
+    color:#ff5e01;
     
 }
 
 input {
     min-width: 5em;
     height: 3em;
-    background-color: #CDDC39;
+    background-color: #03f775;
     border-radius: 15px;
     border: 1px solid #BDBDBD;
+    font-family: 'Courier New', Courier, monospace;
+    padding:1em;
+    font-weight: bold;
+    color: rgb(63, 63, 63);
 }
 
 input:disabled {
-    background-color: #faffce;;
+    background-color: #ddfaeb;
+    color: rgb(159, 159, 159);
 }
 
 img {
@@ -65,16 +73,35 @@ img {
 }
 
 .reset-button {
-    background-color: rgb(255, 101, 101)!important;
+    background-color: #D90368!important;
 }
 .save-button {
-    background-color: #CDDC39!important;
+    background-color: #820263!important;
 }
 
 .save-button, .reset-button {
     border-radius: 0;
     border: none;
+    color: white;
+    font-size: 1em;
 }
-input:hover {
-    opacity: 0.9;
+/* input:hover {
+    opacity: 0.7;
+} */
+
+input:focus {
+    opacity: 1;
 }
+
+.auto {
+    background-color: #f79903;
+}
+
+.price, .rent{
+    font-weight:bold;
+}
+
+
+::-webkit-progress-bar {
+    background-color: orange;
+}  
