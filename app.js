@@ -59,8 +59,8 @@ FEATURES WANTED:
 
 rootElement.innerHTML = `
     <h1>Game</h1>
-    <input type="button" id="saveButton" value="save" class="save-button">
-    <input type="button" id="resetButton" value="reset" class="reset-button">
+    <input type="button" id="saveButton" value="SAVE" class="save-button">
+    <input type="button" id="resetButton" value="RESET" class="reset-button">
     <div id="money-div">
         ${gameState.getMoney()}
     </div>
@@ -84,7 +84,7 @@ const updateMoneyElement = () => {
     
     let moneyDiv = document.querySelector("#money-div")
     document.title= "Clicky: "+ moneyDiv.innerHTML
-    moneyDiv.innerHTML = numberToDisplayFormat(gameState.getMoney())
+    moneyDiv.innerHTML = "💵 $"+numberToDisplayFormat(gameState.getMoney())
     updateUpgradeButtons()
     updateAutoButtons()
     updatePriceAndRent()
@@ -105,14 +105,14 @@ const showBuildings = () => {
                 <h2>${building.name} <span class="level" id=${building.name+"_Level"}></span></h2>
                 <img src=${building.img} />
                 <p id=${building.name+"_Rent"} class="rent">rent: ${building.rent} </p>
-                <p id=${building.name+"_Price"} class="price">price: <span>${Math.round(building.price)} </span></p>
+                <p id=${building.name+"_Price"} class="price">price:<span>${Math.round(building.price)} </span></p>
 
-                <input type="button" value="upgrade" 
+                <input type="button" value="Upgrade" 
                 id=${building.name}Upgrade" class="upgrade"
                 name=${building.name} disabled>
-                <input type="button" value="collect" id=${building.name+"Collect"} class="collect"
+                <input type="button" value="Collect" id=${building.name+"Collect"} class="collect"
                 name=${building.name} >
-                <input type="button" value="Auto for: ${numberToDisplayFormat(building.autoPrice)}" id=${building.name+"Auto"} class="auto"
+                <input type="button" value="Auto for: $${numberToDisplayFormat(building.autoPrice)}" id=${building.name+"Auto"} class="auto"
                 name=${building.name}>
                 <progress id=${building.name+"Progress"} max="100" value="0"> 70% </progress>
             </div>
@@ -240,9 +240,9 @@ const updatePriceAndRent = () => {
     let rent = document.querySelectorAll('.rent')
     let price = document.querySelectorAll('.price')
     
-    rent.forEach(element => element.innerHTML = `Rent: ${
+    rent.forEach(element => element.innerHTML = `Rent: $${
         numberToDisplayFormat(gameState.getRent(element.id.split("_")[0]))}`)
-    price.forEach(element => element.innerHTML = `Price: ${numFormatter(Math.round(gameState.getPrice(element.id.split("_")[0])))}`)
+    price.forEach(element => element.innerHTML = `Price: $${numFormatter(Math.round(gameState.getPrice(element.id.split("_")[0])))}`)
 }
 
 const updateLevel = () => {
@@ -287,9 +287,9 @@ const updatePriceColor = () => {
     prices.forEach(price => {
         let name = price.id.split("_")[0]
         if(gameState.getPrice(name) > gameState.getMoney()){
-            price.style.color = "red"
+            price.style.color = "#f71f03"
         } else{
-            price.style.color = "green"
+            price.style.color = "#02b354"
         }
     })
 }
