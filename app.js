@@ -3,7 +3,6 @@ import gamestate from "./gamestate.js"
 var rootElement = document.querySelector("#root")
 var gameState = new gamestate()
 
-//OBS EXPERIMENTAL WITH LOCALSTORAGE:
 const saveGame = () => {
     localStorage.setItem('save', JSON.stringify(gameState.getBuildings()))
     localStorage.setItem('money', gameState.getMoney())
@@ -36,26 +35,6 @@ const loadFromSave = () => {
     })
     
 }
-//END EXPERIMENT
-
-/*
-TODO:
-- Lagre pengeverdi når man saver
-    - Burde lagre mer enn bare bygningene når jeg saver, slik at jeg også kan
-    lagre typ total pengeverdi, pluss oppgraderingene ect.
-- Styling
-    - Pengene synligere
-    - mindre elementer til byggene.
-- Legge til quadrillion, quintillion ect..
-
-
-FEATURES WANTED:
-- Oppgraderinger globalt eller per type hus. (eks, alt går litt fortere/genererer mer)
-- Achievements
-    - !ikke så viktig, men etterhvert.
-
-
-*/
 
 rootElement.innerHTML = `
     <h1>Game</h1>
@@ -69,7 +48,7 @@ rootElement.innerHTML = `
     </div>
 `
 
-// eventlistners for save/reset button
+
 document.querySelector('#saveButton').addEventListener('click', () => {
     saveGame()
 })
@@ -77,7 +56,6 @@ document.querySelector('#saveButton').addEventListener('click', () => {
 document.querySelector('#resetButton').addEventListener('click', () => {
     restart()
 })
-// end eventlisteners
 
 
 const updateMoneyElement = () => {
@@ -164,19 +142,7 @@ const setupEvents = () => {
             button.value = "upgraded"
             if(!button.disabled)button.disabled = true
             setAuto(button)
-            gameState.setAuto(button.name)
-            /* setInterval(() => {
-                let collectButton = document.querySelector(`#${button.name+"Collect"}`)
-                let result = collectButton.disabled
-                collectButton.style.display = "none"
-                button.style.display = "none"
-                if(!result){
-                    runCollecting(collectButton)
-                }
-            }, 100) */
-
-
-            
+            gameState.setAuto(button.name)            
         })
     })
 
@@ -299,10 +265,8 @@ showBuildings()
 setupEvents()
 setInterval(()=>updateMoneyElement(), 10)
 
-// check if save exists
 if(localStorage.getItem('save') != null){
     loadFromSave()
 }
-// why not work!!?!
 
 updateCollectButton()
